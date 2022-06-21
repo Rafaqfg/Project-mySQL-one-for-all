@@ -15,9 +15,42 @@ CREATE TABLE plan(
 
 CREATE TABLE user(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
-    age INT,
-    sign_date date,
-    plan_id INT,
-    CONSTRAINT FOREIGN KEY (plan_id) REFERENCES plan(id)
+  name VARCHAR(100) NOT NULL,
+  age INT NOT NULL,
+  sign_date date NOT NULL,
+  plan_id INT NOT NULL,
+  CONSTRAINT FOREIGN KEY (plan_id) REFERENCES plan(id)
+);
+
+CREATE TABLE user_follow(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT,
+  artist_id INT,
+  CONSTRAINT FOREIGN KEY (user_id) REFERENCES user(id),
+  CONSTRAINT FOREIGN KEY (artist_id) REFERENCES artist(id)
+);
+
+CREATE TABLE album(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  release_year YEAR NOT NULL,
+  artist_id INT NOT NULL,
+  CONSTRAINT FOREIGN KEY (artist_id) REFERENCES artist(id)
+);
+
+CREATE TABLE song(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  length INT NOT NULL,
+  album_id INT NOT NULL,
+  CONSTRAINT FOREIGN KEY (album_id) REFERENCES album(id)
+);
+
+CREATE TABLE history(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  date_rep DATETIME NOT NULL,
+  user_id INT NOT NULL,
+  song_id INT NOT NULL,
+  CONSTRAINT FOREIGN KEY (user_id) REFERENCES user(id),
+  CONSTRAINT FOREIGN KEY (song_id) REFERENCES song(id)
 );
