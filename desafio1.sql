@@ -1,0 +1,23 @@
+CREATE DATABASE IF NOT EXISTS SpotifyClone;
+
+USE SpotifyClone;
+
+CREATE TABLE artist(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE plan(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+  category VARCHAR(20) NOT NULL,
+  price DOUBLE NOT NULL
+);
+
+CREATE TABLE user(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    age INT,
+    sign_date date,
+    plan_id INT,
+    CONSTRAINT FOREIGN KEY (plan_id) REFERENCES plan(id)
+);
