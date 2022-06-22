@@ -134,7 +134,7 @@ INSERT INTO song(name, length, album_id)
           ('Rock His Everthing', 223, 4),
           ('Home Forever', 231, 4),
           ('Diamond Power', 241, 4),
-          ('Lets Be Silly', 132, 4),
+          ('Let''s Be Silly', 132, 4),
           ('Thang of Thunder', 240, 5),
           ('Words Of Her Life', 185, 5),
           ('Without My Streets', 176, 5),
