@@ -10,7 +10,7 @@ CREATE TABLE artist(
 CREATE TABLE plan(
 	id INT PRIMARY KEY AUTO_INCREMENT,
   category VARCHAR(20) NOT NULL,
-  price DOUBLE NOT NULL
+  price DECIMAL(4, 2) NOT NULL
 );
 
 CREATE TABLE user(
@@ -66,7 +66,7 @@ INSERT INTO artist(name)
          ('Fog');
 
 INSERT INTO plan(category, price)
-  VALUES ('gratuito', 0),
+  VALUES ('gratuito', 0.00),
          ('familiar', 7.99),
          ('universitário', 5.99),
          ('pessoal', 6.99);
