@@ -23,9 +23,10 @@ CREATE TABLE user(
 );
 
 CREATE TABLE user_follow(
-	id INT PRIMARY KEY AUTO_INCREMENT,
+	id INT AUTO_INCREMENT,
   user_id INT,
   artist_id INT,
+  PRIMARY KEY (id, user_id, artist_id),
   CONSTRAINT FOREIGN KEY (user_id) REFERENCES user(id),
   CONSTRAINT FOREIGN KEY (artist_id) REFERENCES artist(id)
 );
@@ -80,3 +81,39 @@ INSERT INTO user(name, age, sign_date, plan_id)
          ('Carol',19, '2018-02-14', 3),
          ('Angelina',42, '2018-04-29', 2),
          ('Paul',46, '2017-01-17', 2);
+
+INSERT INTO user_follow(user_id, artist_id)
+  VALUES (1, 1),
+         (1, 4),
+         (1, 3),
+         (2, 1),
+         (2, 3),
+         (3, 2),
+         (3, 1),
+         (4, 4),
+         (5, 5),
+         (5, 6),
+         (6, 6),
+         (6, 3),
+         (6, 1),
+         (7, 2),
+         (7, 5),
+         (8, 1),
+         (8, 5),
+         (9, 6),
+         (9, 4),
+         (9, 3),
+         (10, 2),
+         (10, 6);
+
+INSERT INTO album(name, release_year, artist_id)
+  VALUES ('Envious', '1990', 1),
+         ('Exuberant', '1993', 1),
+         ('Hallowed Steam', '1995', 2),
+         ('Incandescent', '1998', 3),
+         ('Temporary Culture', '2001', 4),
+         ('Library of liberty', '2003', 4),
+         ('Chained Down', '2007', 5),
+         ('Cabinet of fools', '2012', 5),
+         ('No guarantees', '2015', 5),
+         ('Apparatus', '2015', 6);
